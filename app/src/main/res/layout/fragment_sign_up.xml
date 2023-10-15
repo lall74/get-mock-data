@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- TODO: Update blank fragment layout -->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSignUpFrmSignUp"
+            style="@style/Widget.MaterialComponents.Button"
+            app:cornerRadius="12dp"
+            app:strokeColor="@color/primary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="50dp"
+            android:text="Registrarse"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtConfirmPwdFrmSignUp" />
+
+        <ImageView
+            android:id="@+id/logoFrmSignIn"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="100dp"
+            android:src="@mipmap/ic_launcher_round"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lblUserFrmSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usuario"
+            app:layout_constraintBottom_toTopOf="@+id/txtUserFrmSignUp"
+            app:layout_constraintStart_toStartOf="@+id/txtUserFrmSignUp" />
+
+        <TextView
+            android:id="@+id/lblPwdFrmSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:text="Contraseña"
+            app:layout_constraintBottom_toTopOf="@+id/txtPwdFrmSignUp"
+            app:layout_constraintStart_toStartOf="@+id/txtPwdFrmSignUp" />
+
+        <EditText
+            android:id="@+id/txtUserFrmSignUp"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/full_rounded"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logoFrmSignIn" />
+
+        <EditText
+            android:id="@+id/txtPwdFrmSignUp"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/full_rounded"
+            android:ems="10"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtUserFrmSignUp" />
+
+        <TextView
+            android:id="@+id/lblConfirmPwdFrmSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:text="Confirmar Contraseña"
+            app:layout_constraintBottom_toTopOf="@+id/txtConfirmPwdFrmSignUp"
+            app:layout_constraintStart_toStartOf="@+id/txtConfirmPwdFrmSignUp" />
+
+        <EditText
+            android:id="@+id/txtConfirmPwdFrmSignUp"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/full_rounded"
+            android:ems="10"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtPwdFrmSignUp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
