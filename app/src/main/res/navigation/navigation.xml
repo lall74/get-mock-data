@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.tco_sol.pruebatecnica.ui.MainFragment"
-        android:label="fragment_main"
+        android:label="Menú Principal"
         tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_mainFragment_to_logInFragment"
@@ -23,7 +23,7 @@
     <fragment
         android:id="@+id/logInFragment"
         android:name="com.tco_sol.pruebatecnica.ui.LogInFragment"
-        android:label="fragment_log_in"
+        android:label="Iniciar Sesión"
         tools:layout="@layout/fragment_log_in" >
         <action
             android:id="@+id/action_logInFragment_to_mainFragment"
@@ -38,7 +38,7 @@
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.tco_sol.pruebatecnica.ui.SignUpFragment"
-        android:label="fragment_sign_up"
+        android:label="Registrarse"
         tools:layout="@layout/fragment_sign_up" >
         <action
             android:id="@+id/action_signUpFragment_to_mainFragment"
@@ -49,7 +49,7 @@
     <fragment
         android:id="@+id/productFragment"
         android:name="com.tco_sol.pruebatecnica.ui.ProductFragment"
-        android:label="fragment_product"
+        android:label="Producto"
         tools:layout="@layout/fragment_product" >
         <argument
             android:name="Product"

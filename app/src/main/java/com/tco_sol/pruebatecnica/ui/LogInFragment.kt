@@ -3,6 +3,8 @@ package com.tco_sol.pruebatecnica.ui
 import android.app.Application
 import android.graphics.Color
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -44,33 +46,49 @@ class LogInFragment : Fragment() {
         }
 
         viewModel.status.observe(this.viewLifecycleOwner, Observer { status ->
-            if (status == "SUCCESS") {
-                view?.findNavController()?.navigate(LogInFragmentDirections.actionLogInFragmentToMainFragment(Session.currentUser!!.user))
-            }
-            else {
-                Utils.showLongToast(application, status)
+            val resultado = status.split("|")
+
+            when (resultado[0]){
+                "SUCCESS" ->
+                    view?.findNavController()?.navigate(LogInFragmentDirections.actionLogInFragmentToMainFragment(Session.currentUser!!.user))
+                "USER ERROR" ->
+                    setUserError(resultado[1])
+                "PWD ERROR" ->
+                    setPwdError(resultado[1])
+                else ->
+                    Utils.showLongToast(application, status)
             }
         })
 
+        binding.txtUserFrmLogIn.addTextChangedListener(textWatcher)
+        binding.txtPwdFrmLogIn.addTextChangedListener(textWatcher)
+
         setupSignUpLink()
 
-        (activity as AppCompatActivity).supportActionBar?.title = "Iniciar Sesión"
-        (activity as AppCompatActivity).supportActionBar?.hide()
+        // (activity as AppCompatActivity).supportActionBar?.hide()
 
         return binding.root
     }
 
+    private fun setUserError(error: String) {
+        binding.txtUserLayoutFrmLogIn.error = error
+        binding.txtUserFrmLogIn.requestFocus()
+    }
+
+    private fun setPwdError(error: String) {
+        binding.txtPwdLayoutFrmLogIn.error = error
+        binding.txtPwdFrmLogIn.requestFocus()
+    }
+
     private fun logIn(application: Application) {
         val user = binding.txtUserFrmLogIn.text.toString().trim().lowercase()
-        val pwd = binding.txtPwdFrmLogin.text.toString().trim()
+        val pwd = binding.txtPwdFrmLogIn.text.toString().trim()
 
         if (user == "") {
-            Utils.showToast(application, "¡Ingresar usuario!")
-            binding.txtUserFrmLogIn.requestFocus()
+            setUserError("Ingresar usuario")
         }
         else if (pwd == "") {
-            Utils.showToast(application, "¡Ingresar contraseña!")
-            binding.txtPwdFrmLogin.requestFocus()
+            setPwdError("Ingresar contraseña")
         }
         else {
             viewModel.signIn(user, pwd)
@@ -82,6 +100,23 @@ class LogInFragment : Fragment() {
         signUpLink.setTextColor(Color.BLUE)
         signUpLink.setOnClickListener {
             view?.findNavController()?.navigate(LogInFragmentDirections.actionLogInFragmentToSignUpFragment())
+        }
+    }
+
+    private val textWatcher = object : TextWatcher {
+        lateinit var oldText: String
+
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            oldText = s.toString()
+        }
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+        override fun afterTextChanged(s: Editable?) {
+            if (oldText != s.toString()) {
+                binding.txtUserLayoutFrmLogIn.error = ""
+                binding.txtPwdLayoutFrmLogIn.error = ""
+            }
         }
     }
 }

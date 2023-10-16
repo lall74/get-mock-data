@@ -1,5 +1,6 @@
 package com.tco_sol.pruebatecnica.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -67,8 +68,7 @@ class ProductFragment : Fragment() {
             Log.i("Update", "Product json: $json")
         }
 
-        (activity as AppCompatActivity).supportActionBar?.title = "Producto"
-
         return binding.root
     }
+
 }

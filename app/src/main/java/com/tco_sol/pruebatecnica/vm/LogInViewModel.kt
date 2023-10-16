@@ -35,10 +35,10 @@ class LogInViewModel (private val database: CommonDao, application: Application)
             val result = try {
                 val user = database.getUser(txtUser)
                 if (user == null) {
-                    "¡Usuario inválido!"
+                    "USER ERROR|Usuario inválido"
                 } else {
                     if (user.pwd != txtPwd) {
-                        "¡Contraseña inválida!"
+                        "PWD ERROR|Contraseña incorrecta"
                     } else {
                         Session.initSession(user)
                         "SUCCESS"
