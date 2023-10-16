@@ -45,7 +45,7 @@ class SignUpFragment : Fragment() {
 
         viewModel.status.observe(this.viewLifecycleOwner, Observer { status ->
             if (status == "SUCCESS") {
-                view?.findNavController()?.navigate(SignUpFragmentDirections.actionSignUpFragmentToMainFragment())
+                view?.findNavController()?.navigate(SignUpFragmentDirections.actionSignUpFragmentToMainFragment(Session.currentUser!!.user))
             }
             else {
                 Utils.showLongToast(application, status)

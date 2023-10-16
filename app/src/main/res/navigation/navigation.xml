@@ -13,6 +13,12 @@
         <action
             android:id="@+id/action_mainFragment_to_logInFragment"
             app:destination="@id/logInFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_productFragment"
+            app:destination="@id/productFragment" />
+        <argument
+            android:name="name"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/logInFragment"
@@ -40,4 +46,17 @@
             app:popUpTo="@id/mainFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="com.tco_sol.pruebatecnica.ui.ProductFragment"
+        android:label="fragment_product"
+        tools:layout="@layout/fragment_product" >
+        <argument
+            android:name="Product"
+            app:argType="string" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_logInFragment"
+        app:destination="@id/logInFragment"
+        app:popUpTo="@id/mainFragment" />
 </navigation>
