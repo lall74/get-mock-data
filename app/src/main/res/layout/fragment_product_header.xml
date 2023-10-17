@@ -39,7 +39,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:text="@{viewModel.product.name}"
-                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline3"
                 app:layout_constraintEnd_toStartOf="@+id/txtPpuProductHeaderFragment"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +51,7 @@
                 android:layout_marginTop="8dp"
                 android:text="PRODUCTO"
                 android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline2"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -68,7 +67,6 @@
 
             <TextView
                 android:id="@+id/txtTypePrductHeaderFragment"
-                style="@style/TextAppearance.MdcTypographyStyles.Headline3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -97,7 +95,6 @@
                 android:layout_marginEnd="8dp"
                 android:text="@{@string/format(viewModel.product.ppu)}"
                 android:textAlignment="viewEnd"
-                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/txtNameProductHeaderFragment"
